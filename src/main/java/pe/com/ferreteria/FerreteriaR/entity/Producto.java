@@ -20,28 +20,28 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity(name="Producto")
-@Table(name="producto")
+@Table(name="T_Producto")
 public class Producto implements Serializable
 {
 
     private static final long serialVersionUID=1L;
 
     @Id
-    @Column(name="codigopro")
+    @Column(name="codpro")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long codigo;
-     @Column(name="nombrepro")
+     @Column(name="nompro")
     private String nombre;
-      @Column(name="preciopro ")
+      @Column(name="precpro ")
     private double preciocompra;
-       @Column(name="precioventapro")
+       @Column(name="prevpro")
     private double precioventa;
-        @Column(name="cantidadpro")
+        @Column(name="canpro")
     private double cantidad;
-         @Column(name="estadopro")
+         @Column(name="estpro")
     private boolean estado;
          @ManyToOne
-         @JoinColumn(name="codigocat",nullable=false)
+         @JoinColumn(name="codcat",nullable=false)
     private Categoria categoria;
 
 }

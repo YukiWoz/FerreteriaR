@@ -19,20 +19,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity( name="Categoria")
-@Table(name= "categoria")
+@Table(name= "T_Categoria")
 public class Categoria  implements Serializable{
 
    private static final long serialVersionUID=1L;
 
     @Id
-    @Column(name="codigocat")
+    @Column(name="codcat")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long codigo;
 
-     @Column(name="nombrecat")
+     @Column(name="nomcat")
     private String nombre;
 
-     @Column(name="estadocat")
+     @Column(name="estcat")
     private boolean estado;
 
 }
