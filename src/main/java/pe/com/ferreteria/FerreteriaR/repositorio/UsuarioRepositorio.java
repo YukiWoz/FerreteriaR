@@ -7,6 +7,7 @@ package pe.com.ferreteria.FerreteriaR.repositorio;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
 import pe.com.ferreteria.FerreteriaR.entity.Usuario;
 
 /**
@@ -14,6 +15,6 @@ import pe.com.ferreteria.FerreteriaR.entity.Usuario;
  * @author Usuario
  */
 public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
-    @Query("select c from Usuario c where c.estado='1'")
+      @Query("select p from Usuario p where p.estado='1'")
     List<Usuario>findAllCustom();
 }

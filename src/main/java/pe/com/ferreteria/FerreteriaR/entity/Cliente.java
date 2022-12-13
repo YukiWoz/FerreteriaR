@@ -1,7 +1,6 @@
 
 package pe.com.ferreteria.FerreteriaR.entity;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,27 +12,29 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-@Entity( name="Categoria")
-@Table(name= "t_categoria")
-public class Categoria  implements Serializable{
-
-   private static final long serialVersionUID=1L;
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity(name="Cliente")
+@Table(name="t_cliente")
+public class Cliente {
     @Id
-    @Column(name="codcat")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="codcli")
     private long codigo;
-
-     @Column(name="nomcat")
+    @Column(name="nomcli")
     private String nombre;
-
-     @Column(name="estcat")
+    @Column(name="apepcli")
+    private String apellidopaterno;
+    @Column(name="apemcli")
+    private String apellidomaterno;
+    @Column(name="dnicli")
+    private String dni;
+    @Column(name="celcli")
+    private String celular;
+     @Column(name="sexcli")
+    private String sexo;
+      @Column(name="estcli")
     private boolean estado;
-
 }
-

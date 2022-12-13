@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pe.com.ferreteria.FerreteriaR.entity.Producto;
 import pe.com.ferreteria.FerreteriaR.entity.Usuario;
 import pe.com.ferreteria.FerreteriaR.service.UsuarioServicio;
 
@@ -28,8 +29,7 @@ public class UsuarioRestController {
     public List<Usuario>findAll() {
         return servicio.FinAlld();
     }
- 
-   @GetMapping("/custom")
+  @GetMapping("/custom")
     public List<Usuario>finAllCustom(){
         return servicio.findAllCustom();
     }
@@ -49,10 +49,12 @@ public class UsuarioRestController {
         p.setCodigo(id);
         return servicio.update(p);
     }
-     @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")
     public Usuario delete(@PathVariable long id){
         Usuario objproducto=new Usuario();
+        objproducto.setEstado(false);
         return servicio.delete(Usuario.builder().codigo(id).build());
-        
+
     }
+   
 }

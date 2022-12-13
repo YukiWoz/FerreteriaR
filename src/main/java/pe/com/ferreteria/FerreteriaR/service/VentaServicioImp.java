@@ -9,6 +9,7 @@ import java.util.Optional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.com.ferreteria.FerreteriaR.entity.Usuario;
 import pe.com.ferreteria.FerreteriaR.entity.Venta;
 import pe.com.ferreteria.FerreteriaR.repositorio.VentaRepositorio;
 
@@ -40,9 +41,18 @@ Venta objproducto=repositorio.getById(c.getCodigo());
     }
 
     @Override
-    public void eliminar(long id) {
-      repositorio.deleteById(id);
+    public List<Venta> findAllCustom() {
+      return repositorio.findAllCustom();
     }
+
+    @Override
+    public Venta delete(Venta c) {
+        Venta perfil=repositorio.getById(c.getCodigo());
+        perfil.setEstado(false);
+  return repositorio.save(perfil);
+    }
+
+  
     
     
 }

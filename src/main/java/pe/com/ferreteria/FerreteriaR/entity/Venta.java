@@ -21,11 +21,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity( name="Venta")
-@Table(name= "T_Venta")
+@Table(name= "t_venta")
 public class Venta {
    
     @Id
-    @Column(name="idventa")
+    @Column(name="codventa")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long codigo;
  @ManyToOne
@@ -39,4 +39,6 @@ public class Venta {
     private float igv;
     @Column(name="total_venta")
     private float total; 
+    @Column(name="estven")
+    private boolean estado;
 }

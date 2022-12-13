@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity(name="Perfil")
-@Table(name="T_perfil")
+@Table(name="t_perfil")
 public class Perfil {
     @Id
     @Column(name="codper")

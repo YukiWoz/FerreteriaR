@@ -7,12 +7,11 @@ package pe.com.ferreteria.FerreteriaR.repositorio;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import pe.com.ferreteria.FerreteriaR.entity.Boleta;
 
-import pe.com.ferreteria.FerreteriaR.entity.Venta;
 
+public interface BoletaRepoitorio  extends JpaRepository<Boleta, Long>{
+     @Query("select c from Boleta c where c.estado='1'")
+    List<Boleta>findAllCustom();
 
-public interface VentaRepositorio extends  JpaRepository<Venta, Long>{
-      @Query("select p from Venta p where p.estado='1'")
-    List<Venta>findAllCustom();
-    
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import pe.com.ferreteria.FerreteriaR.entity.Venta;
 import pe.com.ferreteria.FerreteriaR.service.VentaServicio;
 
@@ -25,7 +26,10 @@ public class VentaRestController {
     public List<Venta> findAll() {
         return servicio.findAll();
     }
-  
+    @GetMapping("/custom")
+    public List<Venta> finAllCustom() {
+       return servicio.findAllCustom();
+    }
     
     @GetMapping("/{id}")
     public Optional<Venta>finById(@PathVariable long id){
@@ -43,11 +47,15 @@ public class VentaRestController {
         return servicio.update(c);
     }
     
-    @DeleteMapping("/{id}")
-    public void elimina(@PathVariable("id")long id)
-    {
-    servicio.eliminar(id);
-    
+   @DeleteMapping("/{id}")
+    public Venta delete(@PathVariable long id) {
+        Venta objcategoria = new Venta();
+        objcategoria.setEstado(false);
+        return servicio.delete(Venta.builder().codigo(id).build());
+
     }
+    
+    
+    
     
 }

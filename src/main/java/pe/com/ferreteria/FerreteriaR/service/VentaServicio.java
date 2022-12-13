@@ -6,6 +6,7 @@ package pe.com.ferreteria.FerreteriaR.service;
 
 import java.util.List;
 import java.util.Optional;
+import pe.com.ferreteria.FerreteriaR.entity.Usuario;
 import pe.com.ferreteria.FerreteriaR.entity.Venta;
 
 /**
@@ -14,13 +15,11 @@ import pe.com.ferreteria.FerreteriaR.entity.Venta;
  */
 public interface VentaServicio {
      public List<Venta>findAll();
-
+  public List<Venta> findAllCustom();
     public Optional<Venta> findById(long id);
-
     public Venta add(Venta c);
-
     public Venta update(Venta c);
-
-  public void eliminar(long id);
+  public Venta delete(Venta c);
+  
   
 }

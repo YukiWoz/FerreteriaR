@@ -15,29 +15,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-@Entity(name ="Usuario")
-@Table(name = "t_usuario")
-public class Usuario {
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity(name="DetalleVenta")
+@Table(name="T_DetalleVenta")
+public class DetalleVenta{
     @Id
-    @Column(name = "idusuario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="iddetalle")
     private long codigo;
-    
-    @Column(name = "nombreus")
-    private String nombre;
-    @Column(name = "apeus")
-    private String apellido;
-    @Column(name = "clave")
-    private String clave;
-    @Column(name = "correo")
-    private String correo;
     @ManyToOne
-    @JoinColumn(name = "codper", nullable = false)
-    private Perfil perfil;
-    @Column(name = "estus")
+    @JoinColumn(name = "idventa", nullable = false)
+    private Venta venta;
+    @ManyToOne
+    @JoinColumn(name = "codpro", nullable = false)
+    private Producto producto;
+     @Column(name="canpro")
+    private int cantidad;
+     @Column(name="total_venta")
+    private double totalventa;
+     @Column(name="estdeven")
     private boolean estado;
-
+    
 }
