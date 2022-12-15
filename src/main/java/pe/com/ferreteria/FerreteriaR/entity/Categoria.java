@@ -35,5 +35,10 @@ public class Categoria  implements Serializable{
      @Column(name="estcat")
     private boolean estado;
 
+    public Categoria(String nombre, boolean estado) {
+        this.nombre = nombre;
+        this.estado = estado;
+    }
+      
 }
 
