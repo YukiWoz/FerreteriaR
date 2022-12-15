@@ -4,6 +4,7 @@
  */
 package pe.com.ferreteria.FerreteriaR;
 
+import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -65,6 +66,16 @@ public class CategoriaTests {
         
         Categoria categoriaActualizada = repositorio.findByNombre(nomcategoria);
         assertThat(categoriaActualizada.getNombre()).isEqualTo(nomcategoria);
+    }
+    
+    @Test
+    public void testListarCategoria(){
+        List<Categoria> categorias = (List<Categoria>) repositorio.findAll();
+        
+        for(Categoria categoria:categorias){
+            System.out.println(categoria);
+        }
+        assertThat(categorias).size().isGreaterThan(0);
     }
     
     

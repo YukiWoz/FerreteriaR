@@ -40,6 +40,11 @@ public class Categoria  implements Serializable{
         this.nombre = nombre;
         this.estado = estado;
     }
-      
+     
+    @Override
+    public String toString(){
+        return "Categoria [codcat="+ codigo +", nombre="+nombre+", estado="+estado+"]";
+    }
+    
 }
 
