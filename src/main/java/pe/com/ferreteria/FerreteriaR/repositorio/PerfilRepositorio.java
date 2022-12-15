@@ -14,6 +14,8 @@ import pe.com.ferreteria.FerreteriaR.entity.Perfil;
  * @author Usuario
  */
 public interface PerfilRepositorio extends JpaRepository<Perfil, Long> {
+    public Perfil findByNombre(String nombre);
     @Query("select c from Perfil c where c.estado='1'")
          List<Perfil>findAllCustom();
+         
 }
