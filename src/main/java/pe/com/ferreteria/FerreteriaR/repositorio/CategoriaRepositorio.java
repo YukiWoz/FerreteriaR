@@ -13,5 +13,7 @@ public interface CategoriaRepositorio extends JpaRepository<Categoria, Long>
      @Query("select c from Categoria c where c.estado='1'")
     List<Categoria>findAllCustom();
 
+    public Categoria findByNombre(String nombre);
+
 
 }

@@ -4,6 +4,7 @@
  */
 package pe.com.ferreteria.FerreteriaR;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
@@ -34,5 +35,14 @@ public class CategoriaTests {
         
         assertNotNull(categoriaGuardado);
     }
+    
+    @Test
+    public void testBuscarCategoriaPorNombre(){
+        String nombre = "Prueba Any";
+        Categoria categoria = repositorio.findByNombre(nombre);
+        
+        assertThat(categoria.getNombre()).isEqualTo(nombre);
+    }
+    
     
 }
