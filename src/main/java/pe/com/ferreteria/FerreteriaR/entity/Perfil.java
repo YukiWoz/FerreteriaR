@@ -31,4 +31,11 @@ public class Perfil {
     private String nombre;
      @Column(name="estper")
     private boolean estado;
+
+    public Perfil(String nombre, boolean estado) {
+        this.nombre = nombre;
+        this.estado = estado;
+    }
+
+   
 }

@@ -41,4 +41,5 @@ public class Venta {
     private float total; 
     @Column(name="estven")
     private boolean estado;
+    
 }
