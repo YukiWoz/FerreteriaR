@@ -6,6 +6,8 @@ package pe.com.ferreteria.FerreteriaR;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +45,16 @@ public class CategoriaTests {
         
         assertThat(categoria.getNombre()).isEqualTo(nombre);
     }
+    
+    @Test
+    public void testBuscarCategoriaPorNombreNoExistente(){
+        String nombre = "añá";
+        Categoria categoria = repositorio.findByNombre(nombre);
+        
+        assertNull(categoria);
+    }
+    
+    
     
     
 }
