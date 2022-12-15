@@ -54,6 +54,19 @@ public class CategoriaTests {
         assertNull(categoria);
     }
     
+    @Test
+    @Rollback(false)
+    public void testActualizarCategoria(){
+        String nomcategoria = "jijija";//nuevo valor 
+        Categoria categoria = new Categoria(nomcategoria,true);//valor nuevos
+        categoria.setCodigo(16);//id del producto de modificar
+        
+        repositorio.save(categoria);
+        
+        Categoria categoriaActualizada = repositorio.findByNombre(nomcategoria);
+        assertThat(categoriaActualizada.getNombre()).isEqualTo(nomcategoria);
+    }
+    
     
     
     
