@@ -37,4 +37,22 @@ public class Cliente {
     private String sexo;
       @Column(name="estcli")
     private boolean estado;
+
+    public Cliente(String nombre, String apellidopaterno, String apellidomaterno, String dni, String celular, String sexo, boolean estado) {
+        this.nombre = nombre;
+        this.apellidopaterno = apellidopaterno;
+        this.apellidomaterno = apellidomaterno;
+        this.dni = dni;
+        this.celular = celular;
+        this.sexo = sexo;
+        this.estado = estado;
+    }
+    
+    @Override
+    public String toString(){
+        return "Cliente [codcli="+ codigo +", nombre="+nombre+", apellidopaterno"+apellidopaterno+", apellidomaterno"+apellidomaterno+", dni"+dni+", celular"+celular+", sexo"+sexo+" estado="+estado+"]";
+    }
+    
+      
+    
 }

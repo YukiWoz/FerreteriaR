@@ -11,4 +11,6 @@ public interface ClienteRepositorio extends JpaRepository<Cliente, Long>{
      @Query("select c from Cliente c where c.estado='1'")
     List<Cliente>findAllCustom();
 
+        public Cliente findByNombre(String nombre);
+
 }
