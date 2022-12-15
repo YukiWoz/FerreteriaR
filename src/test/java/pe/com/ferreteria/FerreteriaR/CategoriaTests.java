@@ -6,8 +6,10 @@ package pe.com.ferreteria.FerreteriaR;
 
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 import org.junit.jupiter.api.Test;
@@ -78,6 +80,19 @@ public class CategoriaTests {
         assertThat(categorias).size().isGreaterThan(0);
     }
     
+    @Test
+    @Rollback(false)
+    public void testEliminarCategoria(){
+        long codcat = 16;
+        
+        boolean esExistenteAntesDeEliminar = repositorio.findById(codcat).isPresent();
+        repositorio.deleteById(codcat);
+        
+        boolean noExisteDespuesDeEliminar = repositorio.findById(codcat).isPresent();
+        
+        assertTrue(esExistenteAntesDeEliminar);
+        assertFalse(noExisteDespuesDeEliminar);
+    }
     
     
     
